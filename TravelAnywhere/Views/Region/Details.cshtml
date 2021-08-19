@@ -1,0 +1,34 @@
+﻿@model TravelAnywhere.Models.RegionDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RegionDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Regions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regions)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

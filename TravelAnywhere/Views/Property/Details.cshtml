@@ -1,0 +1,34 @@
+﻿@model TravelAnywhere.Models.PropertyDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PropertyDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropertyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Properties)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Properties)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
