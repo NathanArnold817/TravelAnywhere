@@ -1,6 +1,12 @@
-﻿body {
+﻿.b1 {
+    background-image: url("https://higherlogicdownload.s3.amazonaws.com/SRAINTERNATIONAL/UploadedImages/167e255a-8759-4a2f-92f6-591d6d8f7afb/Catalyst-pictures/Text-body-images/april2021/Picture_2_Travel.jpeg");
+    background-size: 100%;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-repeat: no-repeat;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +27,12 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#query {
+    width: 500px;
+    height: 75px;
+    border-radius: 60px;
+    font-weight: bold;
+    font-size: 20px;
 }

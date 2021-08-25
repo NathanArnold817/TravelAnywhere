@@ -48,20 +48,25 @@ namespace TravelAnywhere.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            modelBuilder.Entity<Region>()
+                .HasOptional(e => e.Locations)
+                .WithMany()
+                .WillCascadeOnDelete(true);
         }
-    }
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
-    {
-        public IdentityUserLoginConfiguration()
+        public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {
-            HasKey(iul => iul.UserId);
+            public IdentityUserLoginConfiguration()
+            {
+                HasKey(iul => iul.UserId);
+            }
         }
-    }
-    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-    {
-        public IdentityUserRoleConfiguration()
+        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
         {
-            HasKey(iul => iul.UserId);
+            public IdentityUserRoleConfiguration()
+            {
+                HasKey(iul => iul.UserId);
+            }
         }
     }
 }

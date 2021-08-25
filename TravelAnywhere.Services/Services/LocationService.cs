@@ -24,7 +24,7 @@ namespace TravelAnywhere.Services
                 {
                     OwnerID = _userId,
                     Locations = model.Locations,
-                    RegionID = model.RegionID
+                    RegionID= model.RegionID
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -52,7 +52,7 @@ namespace TravelAnywhere.Services
             }
         }
 
-        public LocationDetail GetPropertyById(int id)
+        public LocationDetail GetLocationById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

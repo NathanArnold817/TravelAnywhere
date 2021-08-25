@@ -77,7 +77,6 @@ namespace TravelAnywhere.Services
                     .Regions
                     .Single(e => e.RegionID == model.RegionID && e.OwnerID == _userId);
 
-                entity.RegionID = model.RegionID;
                 entity.Regions = model.Regions;
 
                 return ctx.SaveChanges() == 1;
@@ -93,7 +92,7 @@ namespace TravelAnywhere.Services
                     .Single(e => e.RegionID == RegionID && e.OwnerID == _userId);
 
                 ctx.Regions.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() ==1;
             }
         }
     }

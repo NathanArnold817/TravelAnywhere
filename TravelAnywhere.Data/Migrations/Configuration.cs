@@ -10,6 +10,7 @@ namespace TravelAnywhere.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "TravelAnywhere.Data.ApplicationDbContext";
         }
 
         protected override void Seed(TravelAnywhere.Data.ApplicationDbContext context)

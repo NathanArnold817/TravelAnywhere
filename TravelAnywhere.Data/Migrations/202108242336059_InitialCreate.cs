@@ -3,7 +3,7 @@ namespace TravelAnywhere.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialmigration : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -25,7 +25,7 @@ namespace TravelAnywhere.Data.Migrations
                 c => new
                     {
                         RegionID = c.Int(nullable: false, identity: true),
-                        Regions = c.String(nullable: false),
+                        Regions = c.String(),
                         OwnerID = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.RegionID);

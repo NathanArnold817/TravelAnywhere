@@ -108,7 +108,7 @@ namespace TravelAnywhere.Controllers
         {
             var service = CreateRegionService();
             service.DeleteRegion(id);
-            TempData["SaveResult"] = "Your note was deleted.";
+            TempData["SaveResult"] = "Your Region was deleted.";
             return RedirectToAction("Index");
         }
     }

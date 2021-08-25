@@ -7,13 +7,13 @@ namespace TravelAnywhere.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class initialmigration : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108182015136_initial migration"; }
+            get { return "202108242336059_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

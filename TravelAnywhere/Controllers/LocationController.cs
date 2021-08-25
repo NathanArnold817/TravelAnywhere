@@ -46,7 +46,7 @@ namespace TravelAnywhere.Controllers
         public ActionResult Details(int id)
         {
             var svc = CreateLocationService();
-            var model = svc.GetPropertyById(id);
+            var model = svc.GetLocationById(id);
 
             return View(model);
         }
@@ -54,7 +54,7 @@ namespace TravelAnywhere.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateLocationService();
-            var detail = service.GetPropertyById(id);
+            var detail = service.GetLocationById(id);
             var model =
                 new LocationEdit
                 {
@@ -79,10 +79,10 @@ namespace TravelAnywhere.Controllers
 
             if (service.UpdateLocation(model))
             {
-                TempData["SaveResult"] = "The Region was created.";
+                TempData["SaveResult"] = "The Location was created.";
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "The Region could not be updated.");
+            ModelState.AddModelError("", "The Location could not be updated.");
             return View(model);
         }
 
@@ -97,7 +97,7 @@ namespace TravelAnywhere.Controllers
         public ActionResult Delete(int id)
         {
             var svc = CreateLocationService();
-            var model = svc.GetPropertyById(id);
+            var model = svc.GetLocationById(id);
 
             return View(model);
         }
@@ -108,7 +108,7 @@ namespace TravelAnywhere.Controllers
         {
             var service = CreateLocationService();
             service.DeleteLocation(id);
-            TempData["SaveResult"] = "Your note was deleted.";
+            TempData["SaveResult"] = "Your Location was deleted.";
             return RedirectToAction("Index");
         }
     }

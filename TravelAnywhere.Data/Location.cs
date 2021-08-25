@@ -17,6 +17,7 @@ namespace TravelAnywhere.Data
 
         [ForeignKey("Region")]
         public int? RegionID { get; set; }
+        public string Regions { get; set; }
         public virtual Region Region { get; set; }
     }
 }

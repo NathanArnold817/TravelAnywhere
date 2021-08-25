@@ -56,9 +56,21 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\202108182015136_initial migration.cs" />
-    <Compile Include="Migrations\202108182015136_initial migration.Designer.cs">
-      <DependentUpon>202108182015136_initial migration.cs</DependentUpon>
+    <Compile Include="Migrations\202108242336059_InitialCreate.cs" />
+    <Compile Include="Migrations\202108242336059_InitialCreate.Designer.cs">
+      <DependentUpon>202108242336059_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108242342306_initial migration.cs" />
+    <Compile Include="Migrations\202108242342306_initial migration.Designer.cs">
+      <DependentUpon>202108242342306_initial migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108242358499_cascading delete.cs" />
+    <Compile Include="Migrations\202108242358499_cascading delete.Designer.cs">
+      <DependentUpon>202108242358499_cascading delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108250020053_add region by list not id.cs" />
+    <Compile Include="Migrations\202108250020053_add region by list not id.Designer.cs">
+      <DependentUpon>202108250020053_add region by list not id.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +84,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108182015136_initial migration.resx">
-      <DependentUpon>202108182015136_initial migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108242336059_InitialCreate.resx">
+      <DependentUpon>202108242336059_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108242342306_initial migration.resx">
+      <DependentUpon>202108242342306_initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108242358499_cascading delete.resx">
+      <DependentUpon>202108242358499_cascading delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250020053_add region by list not id.resx">
+      <DependentUpon>202108250020053_add region by list not id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
