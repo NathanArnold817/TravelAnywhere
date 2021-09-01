@@ -16,10 +16,14 @@ namespace TravelAnywhere.Data
         public string Properties { get; set; }
         [Required]
         public decimal Price { get; set; }
+        public DateTime DatesAvailable { get; set; }
         public Guid OwnerID { get; set; }
+        public virtual List<Rating> Ratings { get; set; }
+        public virtual List<Review> Reviews { get; set; }
+
 
         [ForeignKey("Location")]
-        public int? LocationID { get; set; }
+        public int LocationID { get; set; }
         public virtual Location Location { get; set; }
     }
 }

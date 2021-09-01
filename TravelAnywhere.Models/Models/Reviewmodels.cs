@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAnywhere.Data;
 
 namespace TravelAnywhere.Models
 {
@@ -15,6 +16,8 @@ namespace TravelAnywhere.Models
     }
     public class ReviewDetail
     {
+        public virtual Property Property { get; set; }
+        public virtual Location Location { get; set; }
         public int ReviewID { get; set; }
         public string Reviews { get; set; }
         [Display(Name = "Created")]
@@ -31,10 +34,8 @@ namespace TravelAnywhere.Models
     {
         public int ReviewID { get; set; }
         public string Reviews { get; set; }
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public virtual Property Property { get; set; }
+        public virtual Location Location { get; set; }
     }
 }
 

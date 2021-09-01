@@ -24,8 +24,8 @@ namespace TravelAnywhere.Services
                 {
                     OwnerID = _userId,
                     Ratings = model.Ratings,
-                    //LocationID = model.LocationID,    not sure if need
-                    //PropertyID = model.PropertyID     do i need this?
+                    LocationID = model.LocationID,  
+                    PropertyID = model.PropertyID,
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,6 +46,9 @@ namespace TravelAnywhere.Services
                         e =>
                         new RatingListItem
                         {
+                            RatingID = e.RatingID,
+                             Property = e.Property,
+                            Location = e.Location,
                             Ratings = e.Ratings
                         });
                 return query.ToArray();

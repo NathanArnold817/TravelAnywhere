@@ -1,18 +1,32 @@
-﻿.b1 {
-    background-image: url("https://higherlogicdownload.s3.amazonaws.com/SRAINTERNATIONAL/UploadedImages/167e255a-8759-4a2f-92f6-591d6d8f7afb/Catalyst-pictures/Text-body-images/april2021/Picture_2_Travel.jpeg");
-    background-size: 100%;
+﻿
+#title{
+    font-size: 6em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
 }
-
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-repeat: no-repeat;
+   /* background-repeat: no-repeat;
+    background-image: url("https://wallpaperaccess.com/full/2028728.jpg");
+    background-size: 100%;*/
 }
-
+#i1 {
+    display: inline-block;
+    position: relative;
+    margin-top: -11em;
+   
+}
+.b1 {
+    background-repeat: no-repeat;
+    background-image: url("https://wallpaperaccess.com/full/2028728.jpg");
+    background-size: 100%;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+   /* background-color:white;*/
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -28,11 +42,16 @@ select,
 textarea {
     max-width: 280px;
 }
-
-#query {
-    width: 500px;
-    height: 75px;
-    border-radius: 60px;
-    font-weight: bold;
-    font-size: 20px;
+.toppics{
+    display: inline-block;
 }
+.tp1{
+    positon: relative;
+    margin-top: 200px;
+    display: inline-block;
+    max-width: 28%;
+    padding: 20px;
+}
+
+
+

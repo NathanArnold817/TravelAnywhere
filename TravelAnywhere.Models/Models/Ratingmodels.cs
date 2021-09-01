@@ -4,11 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAnywhere.Data;
 
 namespace TravelAnywhere.Models
 {
     public class RatingCreate
     {
+        public string Locations { get; set; }
+        public string Properties { get; set; }
         public int? LocationID { get; set; }
         public int? PropertyID { get; set; }
         public int Ratings { get; set; }
@@ -31,8 +34,11 @@ namespace TravelAnywhere.Models
     {
         public int RatingID { get; set; }
         public int Ratings { get; set; }
-        [Display(Name ="Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public virtual Property Property { get; set; }
+        public virtual Location Location { get; set; }
+
+        /*  [Display(Name ="Created")]
+          public DateTimeOffset CreatedUtc { get; set; }*/
     }
 }
 

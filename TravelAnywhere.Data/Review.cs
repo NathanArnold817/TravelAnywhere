@@ -18,10 +18,12 @@ namespace TravelAnywhere.Data
         public DateTimeOffset? ModifiedUtc { get; set; }
 
         [ForeignKey("Property")]
+       /* public string Properties { get; set; }*/
         public int? PropertyID { get; set; }
         public virtual Property Property { get; set; }
 
         [ForeignKey("Location")]
+        /*public string Locations { get; set; }*/
         public int? LocationID { get; set; }
         public virtual Location Location { get; set; }
     }

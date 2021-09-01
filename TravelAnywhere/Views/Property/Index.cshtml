@@ -7,7 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("View Locations", "Index", "Location") |@*, new { id = item.LocationID }, null)*@
+    @Html.ActionLink("View Ratings", "Index", "Rating") |
+    @Html.ActionLink("View Reviews", "Index", "Review")
 </p>
 <table class="table">
     <tr>
@@ -16,6 +19,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Properties)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.Locations)
         </th>
         <th></th>
     </tr>
@@ -29,9 +38,15 @@
             @Html.DisplayFor(modelItem => item.Properties)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PropertyID}) |
-            @Html.ActionLink("Details", "Details", new { id = item.PropertyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.PropertyID })
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.Locations)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.PropertyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PropertyID }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.PropertyID})
         </td>
     </tr>
 }

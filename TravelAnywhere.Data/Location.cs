@@ -14,10 +14,12 @@ namespace TravelAnywhere.Data
         [Required]
         public string Locations { get; set; }
         public Guid OwnerID { get; set; }
-
-        [ForeignKey("Region")]
+        public virtual List<Property> Properties { get; set; }
+        public virtual List<Rating> Ratings { get; set; }
+        public virtual List<Review> Reviews { get; set; }
+        
+      /*  [ForeignKey("Region")]
         public int? RegionID { get; set; }
-        public string Regions { get; set; }
-        public virtual Region Region { get; set; }
+        public virtual Region Region { get; set; }*/
     }
 }

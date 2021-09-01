@@ -7,7 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Add a property", "index", "Property") |
+    @Html.ActionLink("To Ratings", "index", "Rating") |
+    @Html.ActionLink("To Reviews", "index", "Review")
+
+
 </p>
 <table class="table">
     <tr>
@@ -29,9 +34,11 @@
             @Html.DisplayFor(modelItem => item.Locations)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LocationID}) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.LocationID }) |
             @Html.ActionLink("Details", "Details", new { id = item.LocationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.LocationID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.LocationID }) |
+            
+
         </td>
     </tr>
 }

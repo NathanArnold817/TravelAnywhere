@@ -46,12 +46,15 @@ namespace TravelAnywhere.Services
                         e =>
                         new ReviewListItem
                         {
-                            Reviews = e.Reviews
+                            ReviewID = e.ReviewID,
+                            Reviews = e.Reviews,
+                            Location = e.Location,
+                            Property = e.Property
                         });
                 return query.ToArray();
             }
         }
-
+      
         public ReviewDetail GetReviewById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -63,6 +66,7 @@ namespace TravelAnywhere.Services
                 return
                         new ReviewDetail
                         {
+                           
                             ReviewID = entity.ReviewID,
                             Reviews = entity.Reviews,
                             CreatedUtc = entity.CreatedUtc,

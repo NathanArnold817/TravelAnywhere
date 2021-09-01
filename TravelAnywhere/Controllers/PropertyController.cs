@@ -22,6 +22,9 @@ namespace TravelAnywhere.Controllers
 
         public ActionResult Create()
         {
+            var service = CreateLocationService();
+            var Locations = service.GetLocation();
+            ViewBag.Locations = Locations.ToList();
             return View();
         }
 
@@ -35,11 +38,11 @@ namespace TravelAnywhere.Controllers
 
             if (service.CreateProperty(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your Property was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Property could not be created.");
             return View(model);
         }
 
@@ -58,8 +61,10 @@ namespace TravelAnywhere.Controllers
             var model =
                 new PropertyEdit
                 {
+                    LocationID = detail.LocationID,
                     PropertyID = detail.PropertyID,
-                    Properties = detail.Properties
+                    Properties = detail.Properties,
+                    Price = detail.Price
                 };
             return View(model);
         }
@@ -76,13 +81,13 @@ namespace TravelAnywhere.Controllers
                 return View(model);
             }
             var service = CreatePropertyService();
-
+            
             if (service.UpdateProperty(model))
             {
-                TempData["SaveResult"] = "The Region was created.";
+                TempData["SaveResult"] = "The Property was created.";
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "The Region could not be updated.");
+            ModelState.AddModelError("", "The Property could not be updated.");
             return View(model);
         }
 
@@ -90,6 +95,13 @@ namespace TravelAnywhere.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PropertyService(userId);
+            return service;
+        }
+
+        private LocationService CreateLocationService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new LocationService(userId);
             return service;
         }
 

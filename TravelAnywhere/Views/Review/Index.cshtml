@@ -12,34 +12,42 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ReviewID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Reviews)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
+            @Html.DisplayNameFor(model => model.Location.Locations)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
+            @Html.DisplayNameFor(model => model.Property.Properties)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Reviews)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ReviewID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReviewID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Reviews)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location.Locations)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Property.Properties)
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ReviewID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+    </td>
+</tr>
 }
 
 </table>

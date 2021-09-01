@@ -49,10 +49,11 @@ namespace TravelAnywhere.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
 
-            modelBuilder.Entity<Region>()
-                .HasOptional(e => e.Locations)
-                .WithMany()
-                .WillCascadeOnDelete(true);
+            /*modelBuilder.Entity<Location>()
+                .HasOptional<Region>(e => e.Region)//.HasOptional was used before /// With Many on line below
+                .WithMany()                            //first dot table talking about second class talking about//third  what about deleted from parent
+                .WillCascadeOnDelete(true);*/
+
         }
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {

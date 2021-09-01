@@ -1,37 +1,113 @@
-﻿@{
+﻿@model TravelAnywhere.Models.Models.Homepage
+
+@{
     ViewBag.Title = "Home Page";
 }
+
+
+@*<style>
+    div {
+        background-image: url("https://wallpaperaccess.com/full/2028728.jpg");
+    }
+</style>*@
 <div class="b1">
-    <h1>Travel Anywhere</h1>
-    <p class="lead">Travel Anywhere is the premier destination for all travel plans. From vactions in the Maldeaves to extended visits to Italy for business or pleasure.</p>
+
+<h1 id="title">Travel Anywhere</h1>
+<img src="https://i.pinimg.com/originals/4a/a5/34/4aa534605d1afc465c5bdc5dd80f1ecb.png" width="150" height="150" / id="i1">
+<p class="lead">Travel Anywhere is the premier destination for all travel plans. From vactions in the Maldeaves to extended visits to Italy for business or pleasure.</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Locations, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Locations, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.Locations, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@*@using (Html.BeginForm())
+                {
+
     <form id="form" role="search">
         <input type="search" id="query" name="q"
                placeholder="Where are you going?...."
                aria-label="Search through site content">
-        <button>Search</button>
-    </form>
+        <label for="start">Start date:</label>
+        <input type="date" id="start" name="trip-start"
+               value=""
+               min="2021-08-28" max="2023-12-31">
+        <label for="End">End date:</label>
+        <input type="date" id="start" name="trip-end"
+               value=""
+               min="2021-08-28" max="2023-12-31">
+        <label for="price">Please select a price range per night:</label>
+        <select id="price" name="price">
+            <option value="cheap">25-50</option>
+            <option value="midrange">50-100</option>
+            <option value="expensive">100+</option>
+        </select>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>
+        <button type="submit">Search</button>
+
+    </form>
+                }*@
 </div>
+<div class="tp1">
+    <h2>Our top picks</h2>
+    <h4>Bali, Indonesia</h4>
+    <img src="https://thumbor.thedailymeal.com/xVZCLHPtZdifACZXkz8Gu5zEBIE=/870x565/filters:format(webp)/https://www.theactivetimes.com/sites/default/files/slideshows/104950/107511/4_Bali_Indonesia.jpg" width="280" height="280" />
+    <p>It's such a unique place where all the worlds come together, and I think many people secretly dream of leaving everything behind and moving to Bali,” Dimag Ozgum, founder and CEO of VacationWolf, says. “The weather, wonderful beaches, healthy food, waterfalls, the people. Bali has it all. Your soul is going to thank you once you vacation in Bali. There is something in Bali for everyone no matter what type of traveler you are.”</p>
+</div>
+<div class="tp1">
+
+    <h4>Costa Rica</h4>
+    <img src="https://thumbor.thedailymeal.com/p__ZDxkQ75quZrDcr1tB33buSPI=/870x565/filters:format(webp)/https://www.theactivetimes.com/sites/default/files/slideshows/104950/107511/10_Costa_Rica.jpg" width="280" height="280" id="tp" />
+    <p>Visitors enjoy relaxing at the beautiful beaches, exploring the spectacular jungles and admiring the beautiful national parks. Zip lining, whitewater rafting, surfing, hiking, cliff jumping, and skydiving are a few thrilling adventures you have the opportunity to experience.</p>
+</div>
+<div class="tp1">
+
+    <h4>Croatia</h4>
+    <img src="https://thumbor.thedailymeal.com/cBpLiWz56-AxQhdwGlNFm_A4jww=/870x565/filters:format(webp)/https://www.theactivetimes.com/sites/default/files/slideshows/104950/107511/11_Croatia.jpg" width="280" height="280" id="tp" />
+    <p>On the shores of the Adriatic Sea, it boasts a coastline rivaling that of neighboring Italy, and countless islands to explore</p>
+</div>
+
 
 

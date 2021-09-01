@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelAnywhere.Data;
 using TravelAnywhere.Models;
+using TravelAnywhere.Models.Models;
 
 namespace TravelAnywhere.Services
 {
@@ -22,9 +23,12 @@ namespace TravelAnywhere.Services
             var entity =
                 new Property()
                 {
+                    DatesAvailable = DateTime.Now,
+                    LocationID=model.LocationID,
                     OwnerID = _userId,
                     Properties = model.Properties,
-                    LocationID = model.LocationID
+                    Price = model.Price
+
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -45,13 +49,34 @@ namespace TravelAnywhere.Services
                         e =>
                         new PropertyListItem
                         {
+                           
                             PropertyID = e.PropertyID,
-                            Properties = e.Properties
+                            Properties = e.Properties,
+                            Price = e.Price,
+                            Location = e.Location
                         });
                 return query.ToArray();
             }
         }
-
+        public IEnumerable<PropertyCustomer>ViewProperties()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Properties
+                    .Where(e => e.OwnerID == _userId)
+                    .Select(
+                        e =>
+                        new PropertyCustomer
+                        {
+                            PropertyID = e.PropertyID,
+                            Properties = e.Properties,
+                            Price = e.Price
+                        });
+                return query.ToArray();
+            }
+        }
         public PropertyDetail GetPropertyById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -63,8 +88,10 @@ namespace TravelAnywhere.Services
                 return
                         new PropertyDetail
                         {
+                            LocationID = entity.LocationID,
                             PropertyID = entity.PropertyID,
-                            Properties = entity.Properties
+                            Properties = entity.Properties,
+                            Price = entity.Price,
                         };
             }
         }
@@ -77,10 +104,10 @@ namespace TravelAnywhere.Services
                     ctx
                     .Properties
                     .Single(e => e.PropertyID == model.PropertyID && e.OwnerID == _userId);
-
+                entity.LocationID = model.LocationID;
                 entity.PropertyID = model.PropertyID;
                 entity.Properties = model.Properties;
-                entity.LocationID = model.LocationID;
+                entity.Price = model.Price;
 
                 return ctx.SaveChanges() == 1;
             }

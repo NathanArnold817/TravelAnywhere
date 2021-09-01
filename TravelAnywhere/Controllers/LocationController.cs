@@ -22,6 +22,9 @@ namespace TravelAnywhere.Controllers
 
         public ActionResult Create()
         {
+            var service = CreateRegionService();
+            var Regions = service.GetRegion();
+            ViewBag.Regions = Regions.ToList();
             return View();
         }
 
@@ -35,11 +38,11 @@ namespace TravelAnywhere.Controllers
 
             if (service.CreateLocation(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your Location was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Location could not be created.");
             return View(model);
         }
 
@@ -90,6 +93,12 @@ namespace TravelAnywhere.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new LocationService(userId);
+            return service;
+        }
+        private RegionService CreateRegionService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new RegionService(userId);
             return service;
         }
 

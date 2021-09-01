@@ -11,10 +11,9 @@ namespace TravelAnywhere.Data
     {
         [Key]
         public int RegionID { get; set; }
-
-        public virtual  List<Location> Locations { get; set; }
         [Required]
         public string Regions { get; set; }
+        public virtual  List<Location> Locations { get; set; }
         public Guid OwnerID { get; set; }
     }
 }
