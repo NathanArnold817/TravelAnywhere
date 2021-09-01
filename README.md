@@ -1,4 +1,4 @@
-# TravelAnywhereTravelAnywhere is a web Mvc intended for a relocation service or extended vacations. Short ones are allowed to.
+# TravelAnywhere is a web Mvc intended for a relocation service or extended vacations. Short ones are allowed to.
 
 Searches can be filtered by location (city, and country) T
 he only location I have in the database, is Cancun, Mexico 
